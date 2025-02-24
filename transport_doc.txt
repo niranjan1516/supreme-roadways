@@ -1,0 +1,94 @@
+number of pages :
+
+1. Home
+2. services
+4. fleet
+5. contact 
+6. track order
+7. admin
+
+
+step 2 : database creation :
+
+For a transport services website, you'll need to create a database schema to manage drivers, customers, admins, and related functionalities. Below is a suggested structure for the tables and columns you might include in your database schema:
+
+### 1. **Drivers Table**
+   - `driver_id` (Primary Key): Unique identifier for each driver.
+   - `first_name`: Driver's first name.
+   - `last_name`: Driver's last name.
+   - `email`: Driver's email address (unique).
+   - `phone_number`: Driver's phone number.
+   - `license_number`: Driver’s license number.
+   - `license_expiry_date`: Expiration date of the driver’s license.
+   - `vehicle_id` (Foreign Key): Link to the `vehicles` table.
+   - `status`: Status of the driver (e.g., active, inactive).
+   - `hire_date`: Date when the driver was hired.
+   - `profile_picture`: URL or path to the driver’s profile picture.
+
+### 2. **Customers Table**
+   - `customer_id` (Primary Key): Unique identifier for each customer.
+   - `first_name`: Customer's first name.
+   - `last_name`: Customer's last name.
+   - `email`: Customer’s email address (unique).
+   - `phone_number`: Customer's phone number.
+   - `address`: Customer’s address.
+   - `registered_date`: Date when the customer registered.
+   - `profile_picture`: URL or path to the customer’s profile picture (optional).
+
+### 3. **Admins Table**
+   - `admin_id` (Primary Key): Unique identifier for each admin.
+   - `first_name`: Admin’s first name.
+   - `last_name`: Admin’s last name.
+   - `email`: Admin’s email address (unique).
+   - `phone_number`: Admin’s phone number.
+   - `password_hash`: Hashed password for security.
+   - `role`: Role of the admin (e.g., superadmin, support, manager).
+   - `last_login`: Timestamp of the last login.
+
+### 4. **Vehicles Table**
+   - `vehicle_id` (Primary Key): Unique identifier for each vehicle.
+   - `vehicle_type`: Type of vehicle (e.g., sedan, van).
+   - `license_plate`: Vehicle’s license plate number.
+   - `model`: Vehicle model.
+   - `make`: Vehicle make (brand).
+   - `year`: Year of manufacture.
+   - `capacity`: Number of passengers the vehicle can accommodate.
+   - `status`: Status of the vehicle (e.g., available, in maintenance).
+
+### 5. **Bookings Table**
+   - `booking_id` (Primary Key): Unique identifier for each booking.
+   - `customer_id` (Foreign Key): Link to the `customers` table.
+   - `driver_id` (Foreign Key): Link to the `drivers` table.
+   - `vehicle_id` (Foreign Key): Link to the `vehicles` table.
+   - `pickup_location`: Address or coordinates of the pickup location.
+   - `dropoff_location`: Address or coordinates of the dropoff location.
+   - `pickup_time`: Date and time of the pickup.
+   - `dropoff_time`: Date and time of the dropoff (optional).
+   - `status`: Status of the booking (e.g., confirmed, completed, canceled).
+   - `payment_status`: Status of the payment (e.g., paid, pending).
+
+### 6. **Payments Table**
+   - `payment_id` (Primary Key): Unique identifier for each payment.
+   - `booking_id` (Foreign Key): Link to the `bookings` table.
+   - `amount`: Amount paid.
+   - `payment_method`: Method of payment (e.g., credit card, cash).
+   - `payment_date`: Date and time of the payment.
+   - `status`: Status of the payment (e.g., completed, failed).
+
+### 7. **Reviews Table**
+   - `review_id` (Primary Key): Unique identifier for each review.
+   - `customer_id` (Foreign Key): Link to the `customers` table.
+   - `driver_id` (Foreign Key): Link to the `drivers` table.
+   - `booking_id` (Foreign Key): Link to the `bookings` table.
+   - `rating`: Rating given by the customer.
+   - `comment`: Review comment by the customer.
+   - `review_date`: Date when the review was submitted.
+
+### 8. **Admin Actions Table**
+   - `action_id` (Primary Key): Unique identifier for each action.
+   - `admin_id` (Foreign Key): Link to the `admins` table.
+   - `action_type`: Type of action performed (e.g., update booking, add vehicle).
+   - `description`: Description of the action.
+   - `action_date`: Date and time the action was performed.
+
+This schema can be customized based on specific requirements and functionalities of your transport services website. Ensure to also consider indexing and normalization strategies for optimal database performance.
