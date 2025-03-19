@@ -4,7 +4,7 @@ include('includes/connection.php');
 include('includes/allfunction.php');
 
 $editid = $_GET['editid'];
-$editdata = selectdatabyid('team',$_GET['editid']);
+$editdata = selectdatabyid('driver',$_GET['editid']);
 
 if(isset($_POST['submit']))
 {

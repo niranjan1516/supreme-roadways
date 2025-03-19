@@ -86,10 +86,10 @@ if(isset($_GET['delid']))
                                                     <td><?php echo $team['exp']; ?></td>
                                                     <td><?php echo $team['mobile']; ?></td>                  
                                                     <td>
-                                                        <a href="edit_member.php?editid=<?php echo $team['d_id'];?>" 
-                                                        style="padding-right:5px">Edit</a>
+                                                        <!-- <a href="edit_member.php?editid=<?php echo $team['d_id'];?>" 
+                                                        style="padding-right:5px">Edit</a> -->
                                                         
-                                                        <a href="all_drivers.php?delid=<?php echo $team['d_id'];?>"
+                                                        <a href="all_drivers.php?delid=<?php echo $team['id'];?>"
                                                         onclick="return confirm('Do you want to delete this data')">Delete</a>
                                                     </td>
                                                 </tr>
